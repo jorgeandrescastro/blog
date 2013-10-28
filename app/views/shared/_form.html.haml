@@ -1,0 +1,17 @@
+- action_url = @post.id.present? ? post_path(@post.id) : posts_path  
+= form_for :post, url: action_url do |f|
+  - if @post.errors.any?
+    .errors
+      = "#{pluralize(@post.errors.count, 'error')} prohibited this post from being saved: "
+      %ul
+      - @post.errors.full_messages.each do |error|
+        %li= error  
+  %p
+    = f.label :title
+    = f.text_field :title
+  %p
+    = f.label :text
+    = f.text_area :text
+ 
+  %p
+    = f.submit

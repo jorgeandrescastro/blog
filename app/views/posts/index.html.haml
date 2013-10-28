@@ -1,0 +1,19 @@
+%h1= "Listing All Posts"
+= link_to("New Blog Entry", new_post_path)
+%br
+%table
+  %thead
+    %tr
+      %th= "Name"
+      %th= "Text"
+      %th
+      %th
+      %th
+  %tbody
+    - @posts.each do |post|
+      %tr
+        %td= post.title
+        %td= post.text
+        %td= link_to('Show', post_path(post))
+        %td= link_to('Edit', edit_post_path(post))
+        %td= link_to('Delete', post_path(post), method: 'delete', data: {confirm: 'Are you sure?'} )

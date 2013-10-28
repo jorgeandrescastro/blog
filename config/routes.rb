@@ -6,6 +6,8 @@ Blog::Application.routes.draw do
   resources :posts
 
   # You can have the root of your site routed with "root"
+  get '/posts' => 'posts#index'
+  post '/posts/:id' => 'posts#update'
   root 'welcome#index'
 
   # Example of regular route:

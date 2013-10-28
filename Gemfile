@@ -18,6 +18,9 @@ gem 'sass-rails', '~> 4.0.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
+# Retrieve the binding of a method's caller
+gem "binding_of_caller", "~> 0.7.2"
+
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
@@ -36,6 +39,15 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+group :development, :test do
+  gem "pg", "~> 0.17.0"
+  gem "rspec-rails", "~> 2.14.0"
+end
+
+group :production, :test do
+  gem "pg", "~> 0.17.0"
 end
 
 # Use ActiveModel has_secure_password
